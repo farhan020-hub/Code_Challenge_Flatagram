@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Make a GET request to retrieve the image data
   fetch("http://localhost:3000/images/1") // Replace with your actual server endpoint
-    .then((response) => response.json())
+    .then((resp) => resp.json())
     .then((imageData) => {
       // Update the HTML elements with the image data
       cardTitle.textContent = imageData.title;
@@ -46,10 +46,53 @@ document.addEventListener("DOMContentLoaded", () => {
     // Get the current like count and convert it to a number
     let currentLikes = parseInt(likeCount.textContent, 10);
 
-    // Increment the like count
+    // Incrementing the like count
     currentLikes++;
 
     // Update the displayed like count
     likeCount.textContent = `${currentLikes} likes`;
   }
+});
+
+// third deliverable of adding a new comment to the page when the comment form is submitted.
+document.addEventListener("DOMContentLoaded", () => {
+
+  const commentForm = document.getElementById("comment-form");
+  commentForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Get the comment input element
+    const commentInput = document.getElementById("comment");
+
+    // Retrieve the comment text from the input
+    const newCommentText = commentInput.value;
+
+    // Check if the comment is not empty
+    if (newCommentText.trim() !== "") {
+      // Call a function to add the new comment to the page
+      addComment(newCommentText);
+
+      // Clear the comment input field
+      commentInput.value = "";
+    }
+  });
+
+//Bonus deliverable of removing a comment from the page when it is clicked 
+  function addComment(commentText) {
+    // Get the comments list element
+    const commentsList = document.getElementById('comments-list');
+  
+    // Create a new list item for the comment
+    const newComment = document.createElement('li');
+    newComment.textContent = commentText;
+  
+    // Add a click event listener to remove the comment when clicked
+    newComment.addEventListener('click', () => {
+      newComment.remove();
+    });
+  
+    // Append the new comment to the comments list
+    commentsList.appendChild(newComment);
+  }
+  
 });
