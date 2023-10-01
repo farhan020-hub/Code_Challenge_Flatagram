@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const commentsList = document.getElementById("comments-list");
 
   // Make a GET request to retrieve the image data
-  fetch("http://localhost:3000/images/1") // Replace with your actual server endpoint
+  fetch("http://localhost:3000/images/1")
     .then((resp) => resp.json())
     .then((imageData) => {
       // Update the HTML elements with the image data
