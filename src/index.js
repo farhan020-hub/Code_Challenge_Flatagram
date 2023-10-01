@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 //Bonus deliverable of removing a comment from the page when it is clicked 
-  function addComment(commentText) {
+function addComment(commentText) {
     // Get the comments list element
     const commentsList = document.getElementById('comments-list');
   
@@ -86,9 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const newComment = document.createElement('li');
     newComment.textContent = commentText;
   
-   
+    // Add a click event listener to remove the comment when clicked
+    newComment.addEventListener('click', () => {
+      newComment.remove();
+    });
+  
     // Append the new comment to the comments list
     commentsList.appendChild(newComment);
   }
+  
   
 });
