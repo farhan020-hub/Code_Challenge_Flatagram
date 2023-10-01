@@ -86,11 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const newComment = document.createElement('li');
     newComment.textContent = commentText;
   
-    // Add a click event listener to remove the comment when clicked
-    newComment.addEventListener('click', () => {
-      newComment.remove();
-    });
-  
+   
     // Append the new comment to the comments list
     commentsList.appendChild(newComment);
   }
