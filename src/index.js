@@ -1,3 +1,5 @@
+// your code here
+
 document.addEventListener('DOMContentLoaded', () => {
     // Get references to the HTML elements
     const cardTitle = document.getElementById('card-title');
